@@ -1,0 +1,7 @@
+env: "local" # local, dev, prod
+http_server: 
+  address: "localhost:8082"
+  timeout: 4s # час на читання запиту, і такий самий час на відправку response
+  idle_timeout: 60s # час зєднання між server client
+  user: "user"
+  password: "pass"

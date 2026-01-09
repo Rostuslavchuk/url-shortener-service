@@ -1,0 +1,19 @@
+version: '3'
+
+dotenv: ['.env']
+
+tasks:
+  run:
+    desc: Run app
+    cmds:
+      - go run ./cmd/url_shortner/main.go
+
+  migrate-up:
+    desc: Apply migrations
+    cmds:
+      - migrate -path ./migrations -database "$DATABASE_URL" up
+
+  migrate-down:
+    desc: Revert migrations
+    cmds:
+      - migrate -path ./migrations -database "$DATABASE_URL" down

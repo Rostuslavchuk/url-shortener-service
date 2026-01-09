@@ -1,0 +1,34 @@
+Url shortener
+
+.
+├── cmd
+│   └── url-shortener
+│       └── main.go        # Точка входу (все збирається тут)
+├── config
+│   └── local.yaml         # Конфігураційний файл (YAML)
+├── internal
+│   ├── config             # Логіка завантаження конфігу (cleanenv)
+│   ├── http-server        # HTTP шар
+│   │   ├── handlers       # Хендлери (controller) для URL скорочення
+│   │   └── middleware     # Middleware (логер, auth тощо)
+│   ├── lib                # Спільні утиліти
+│   │   ├── logger         # Налаштування slog (pretty handler тощо)
+│   │   └── api            # Обгортки для response (успіх/помилка)
+│   └── storage            # Шар даних
+│       └── postgres       # Реалізація для PostgreSQL
+├── .env                   # Змінні оточення (паролі до БД)
+├── .gitignore
+├── go.mod
+├── go.sum
+└── Taskfile.yaml          # Task runner
+
+log/slog
+github.com/brianvoe/gofakeit/v7 v7.14.0 ганерація рондомних email, lastname, username крч тут все
+github.com/gavv/httpexpect/v2 v2.17.0 для func тестування
+github.com/go-chi/chi/v5 v5.2.3 для router middleware
+github.com/go-chi/render v1.0.3 для роботи з http
+github.com/go-playground/validator/v10 v10.30.1 для валідації request
+github.com/ilyakaznacheev/cleanenv v1.5.0 - для просунутої роботи з env
+github.com/joho/godotenv v1.5.1 для взаємодії з env
+github.com/lib/pq v1.10.9 драйвер для PostgreSQL
+github.com/stretchr/testify v1.11.1 для тестування
